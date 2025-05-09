@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ProductCardProps } from './product-card.types';
 import { Heart } from 'iconsax-react';
+import { Product } from '../types/product.types';
 
 export const ProductCard = ({
   image,
@@ -10,12 +10,12 @@ export const ProductCard = ({
   discountPercentage,
   discountedPrice,
   isFavorite,
-}: ProductCardProps) => {
+}: Product) => {
   return (
     <>
       <Link
         href={`products/${title}`}
-        className="flex flex-col items-center w-[170px] sm:w-[200px] md:w-[230px] bg-[#fff] px-3 py-4 gap-2 rounded-lg"
+        className="flex flex-col items-center w-[170px] md:w-[200px] bg-[#fff] p-3 gap-2 rounded-lg"
       >
         <div className="flex items-center justify-between w-full">
           <Heart
@@ -31,15 +31,21 @@ export const ProductCard = ({
           )}
         </div>
         <Image src={image} alt="" width={230} height={230} />
-        <h3 className="text-center font-bold text-sm md:text-lg line-clamp-2">{title}</h3>
-        {discountedPrice && <span
-          className={`self-end font-bold text-sm md:text-lg line-through text-gray-600
+        <h3 className="text-center text-black font-bold text-sm md:text-lg line-clamp-2">
+          {title}
+        </h3>
+        {discountedPrice && (
+          <span
+            className={`self-end font-bold text-sm md:text-lg line-through text-gray-600
           `}
-        >
-          {originalPrice.toLocaleString()} تومان
-        </span>}
+          >
+            {originalPrice.toLocaleString()} تومان
+          </span>
+        )}
         <span
-          className={`self-end font-bold md:text-lg bg-primary text-white px-4 py-1.5 rounded-lg text-sm ${!discountedPrice && "mt-2"}`}
+          className={`self-end font-bold md:text-lg bg-primary text-white px-4 py-1.5 rounded-lg text-sm ${
+            !discountedPrice && 'mt-2'
+          }`}
         >
           {discountedPrice
             ? discountedPrice.toLocaleString()

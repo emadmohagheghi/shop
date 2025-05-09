@@ -1,11 +1,15 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:lang(fa){
+:lang(fa) {
   font-family: var(--font-iranyekan);
 }
 
 @utility container {
-  @apply mx-auto
+  @apply mx-auto;
+}
+
+.carousel .swiper-slide {
+  width: fit-content !important;
 }
 
 @theme {
