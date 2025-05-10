@@ -1,7 +1,7 @@
 import { Product } from '../types/product.types';
 
 export type CarouselProps = {
-  items: Product[] | string[];
+  children: React.ReactNode;
   title?: string;
   link?: string;
   className?: string;

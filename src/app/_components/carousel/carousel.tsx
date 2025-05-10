@@ -10,9 +10,10 @@ import 'swiper/css/free-mode';
 import Link from 'next/link';
 import { CarouselProps } from './carousel.types';
 import Image from 'next/image';
+import React from 'react';
 
 export const Carousel = ({
-  items,
+  children,
   link,
   title,
   className,
@@ -38,20 +39,8 @@ export const Carousel = ({
         }}
         modules={[FreeMode]}
       >
-        {items.map((item, index) => (
-          <SwiperSlide key={index}>
-            {typeof item === 'string' ? (
-              <Image alt="" src={item} width={256} height={256} />
-            ) : (
-              <ProductCard
-                title={item.title}
-                originalPrice={item.originalPrice}
-                discountPercentage={item.discountPercentage}
-                discountedPrice={item.discountedPrice}
-                image={item.image}
-              />
-            )}
-          </SwiperSlide>
+        {React.Children.map(children, (child, index) => (
+          <SwiperSlide key={index}>{child}</SwiperSlide>
         ))}
       </Swiper>
     </div>
