@@ -1,28 +1,28 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import '../globals.css';
 import localFont from 'next/font/local';
-import { Header } from './_components/header';
+import { Header } from '../_components/header';
 import NextTopLoader from 'nextjs-toploader';
 
 const iranyekan = localFont({
   src: [
     {
-      path: '../../public/fonts/iranyekan/IRANYekanXFaNum-Light.woff2',
+      path: '../../../public/fonts/iranyekan/IRANYekanXFaNum-Light.woff2',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/iranyekan/IRANYekanXFaNum-Regular.woff2',
+      path: '../../../public/fonts/iranyekan/IRANYekanXFaNum-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/iranyekan/IRANYekanXFaNum-Medium.woff2',
+      path: '../../../public/fonts/iranyekan/IRANYekanXFaNum-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/iranyekan/IRANYekanXFaNum-Bold.woff2',
+      path: '../../../public/fonts/iranyekan/IRANYekanXFaNum-Bold.woff2',
       weight: '700',
       style: 'normal',
     },
@@ -45,8 +45,7 @@ export default function RootLayout({
       <body className={`${iranyekan.variable} antialiased bg-white`}>
         <Header />
         <NextTopLoader showSpinner={false} color="#5e0a8e" />
-        <main className="mt-[75px] lg:mt-[160px]">{children}
-        </main>
+        <main className="mt-[75px] lg:mt-[160px]">{children}</main>
       </body>
     </html>
   );
