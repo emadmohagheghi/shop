@@ -7,7 +7,7 @@ import { Input } from '../input';
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 w-full z-90">
+    <header className="fixed top-0 w-full z-10">
       <div className="hidden lg:block bg-white">
         <div className="container mx-auto flex items-center justify-between gap-4 p-3 ">
           <div>

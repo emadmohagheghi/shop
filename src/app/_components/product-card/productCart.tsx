@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Heart } from 'iconsax-react';
-import { Product } from '../types/product.types';
+import { Product } from '../../../types/product.types';
 
 export const ProductCard = ({
   image,

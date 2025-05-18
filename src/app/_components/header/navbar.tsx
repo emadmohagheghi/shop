@@ -62,7 +62,7 @@ export const Navbar = () => {
       </div>
 
       <div
-        className={`lg:hidden w-screen flex gap-5 *:w-1/4 fixed bottom-0 p-2 bg-white transition-transform duration-300 left-0 shadow-2xl text-black ${
+        className={`lg:hidden w-screen flex gap-5 *:w-1/4 fixed bottom-0 p-2 bg-white transition-transform duration-300 left-0 shadow-2xl text-black z-10 ${
           !isScrollingUp && 'translate-y-20'
         }`}
       >
