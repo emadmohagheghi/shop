@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
-import { ComponentBase } from '../types/component-base.types';
+import { ComponentBase } from '../../types/component-base.types';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   ComponentBase & {

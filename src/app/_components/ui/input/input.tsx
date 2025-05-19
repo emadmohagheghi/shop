@@ -1,5 +1,5 @@
 'use client';
-import { Variant } from '../types/varients.types';
+import { Variant } from '../../types/varients.types';
 import { InputProps } from './input.types';
 import classNames from 'classnames';
 import { KeyboardEvent, useState } from 'react';
@@ -20,7 +20,12 @@ export const Input = ({
   isDisabled = false,
   placeholder = 'جستجو',
   className,
-  icon = <SearchNormal1 size="28px" className={`stroke-gray-500 group-focus-within:stroke-primary`} />,
+  icon = (
+    <SearchNormal1
+      size="28px"
+      className={`stroke-gray-500 group-focus-within:stroke-primary`}
+    />
+  ),
   searchPath = '/search',
   ...props
 }: InputProps) => {

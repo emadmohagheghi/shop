@@ -1,9 +1,9 @@
 import { LoginCurve, SearchNormal1, ShoppingCart } from 'iconsax-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../button';
+import { Button } from '../ui/button';
 import { Navbar } from './navbar';
-import { Input } from '../input';
+import { Input } from '../ui/input';
 
 export const Header = () => {
   return (
@@ -25,12 +25,12 @@ export const Header = () => {
           </div>
           <div className="flex items-center gap-5">
             <Link href="/auth">
-            <Button
-              variant="primary"
-              rightIcon={<LoginCurve color="white" size="24" />}
-            >
-              ورود / ثبت نام
-            </Button>
+              <Button
+                variant="primary"
+                rightIcon={<LoginCurve color="white" size="24" />}
+              >
+                ورود / ثبت نام
+              </Button>
             </Link>
             <span className="w-[1px] h-8 bg-gray-500"></span>
             <Link href="/">
@@ -44,7 +44,10 @@ export const Header = () => {
         <div className="relative group">
           <Input className="focus:placeholder:opacity-0" />
           <span className="absolute top-1/2 -translate-1/2 text-gray-600 right-15 group-focus-within:hidden pointer-events-none">
-            در <span className="text-primary text-lg font-bold pointer-events-none">تکنوشاپ</span>
+            در{' '}
+            <span className="text-primary text-lg font-bold pointer-events-none">
+              تکنوشاپ
+            </span>
           </span>
         </div>
       </div>

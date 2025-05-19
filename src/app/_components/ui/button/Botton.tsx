@@ -1,5 +1,5 @@
-import { Size } from '../types/size.types';
-import { Variant } from '../types/varients.types';
+import { Size } from '../../types/size.types';
+import { Variant } from '../../types/varients.types';
 import { ButtonProps } from './button.types';
 import classNames from 'classnames';
 import { Loading } from '../loading';

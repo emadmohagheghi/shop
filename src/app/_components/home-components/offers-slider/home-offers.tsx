@@ -1,11 +1,11 @@
 'use client';
 
-import { ProductCard } from '../../product-card';
+import { ProductCard } from '../../ui/product-card';
 import { ArrowLeft2 } from 'iconsax-react';
 
 import Link from 'next/link';
-import { Timer } from '../../timer';
-import { Carousel } from '../../carousel';
+import { Timer } from '../../ui/timer';
+import { Carousel } from '../../ui/carousel';
 import { Product } from '../../../../types/product.types';
 
 export const OffersSlider = ({ products }: { products: Product[] }) => {

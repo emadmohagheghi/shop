@@ -1,4 +1,4 @@
-import { ComponentBase } from '../types/component-base.types';
+import { ComponentBase } from '../../types/component-base.types';
 import { InputHTMLAttributes } from 'react';
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> &

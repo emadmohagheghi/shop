@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { Size } from '../types/size.types';
+import { Size } from '../../types/size.types';
 import { LoadingProps } from './loading.types';
-import { Variant } from '../types/varients.types';
+import { Variant } from '../../types/varients.types';
 
 const sizeClasses: Record<Size, string> = {
   tiny: 'size-4',
@@ -16,7 +16,7 @@ const variantClasses: Record<Variant, string> = {
   error: 'fill-error',
   warning: 'fill-warning',
   primary: 'fill-primary',
-}
+};
 
 export const Loading = ({
   variant = 'neutral',

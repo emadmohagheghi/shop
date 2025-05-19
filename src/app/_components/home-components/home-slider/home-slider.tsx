@@ -1,11 +1,16 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
+import { imageUrl } from '@/utils/images';
+import { HomeSliderProps } from './home-slider.types';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export const HomeSlider = () => {
+export const HomeSlider = ({ sliderBanners, sideBanners }: HomeSliderProps) => {
+  console.log('sideBanners', imageUrl(sideBanners[0].image.name));
+  console.log('sliderBanners', imageUrl(sliderBanners[0].image.name));
   return (
     <div className="container flex flex-col lg:flex-row gap-5 px-3">
       <div className="w-full lg:w-3/4 ">
@@ -16,47 +21,35 @@ export const HomeSlider = () => {
           loop
           className="rounded-lg w-full"
         >
-          <SwiperSlide className="">
-            <img
-              width={1152}
-              height={518}
-              src="/images/home-slider/slide-1.png"
-              alt="لوازم جانبی رپو"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <img
-              width={1152}
-              height={518}
-              src="/images/home-slider/slide-1.png"
-              alt="لوازم جانبی رپو"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <img
-              width={1152}
-              height={518}
-              src="/images/home-slider/slide-1.png"
-              alt="لوازم جانبی رپو"
-            />
-          </SwiperSlide>
+          {sliderBanners.map((banner) => (
+
+            <SwiperSlide key={banner.id}>
+              <Image
+                width={1152}
+                height={518}
+                src={imageUrl(banner.image.name)}
+                alt={banner.title}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <div className="w-full lg:w-1/4 flex flex-row lg:flex-col gap-3 *:*:rounded-lg justify-between">
         <div className="w-1/2 lg:w-full">
-          <img
-            src="/images/home-slider/pic-1.png"
+
+          <Image
+            src={imageUrl(sideBanners[0].image.name)}
             alt=""
             width={384}
             height={266}
           />
         </div>
         <div className="w-1/2 lg:w-full">
-          <img
-            src="/images/home-slider/pic-2.png"
+          <Image
+            src={imageUrl(sideBanners[1].image.name)}
             alt=""
             width={384}
-            height={660}
+            height={266}
           />
         </div>
       </div>
