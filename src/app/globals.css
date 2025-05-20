@@ -50,4 +50,18 @@
   --color-warning-content: #301e13;
   --color-warning-focus: #f2721e;
   --color-white: #f9f9f9;
+
+  --animate-show-notification: showNotification 0.2s ease forwards;
+}
+
+@keyframes showNotification {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

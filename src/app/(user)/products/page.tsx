@@ -1,10 +1,11 @@
 'use client';
-import { useState } from 'react';
+import {  useState } from 'react';
 import { Drawer } from '@/app/_components/ui/drawer';
 import { Button } from '@/app/_components/ui/button';
 
 export default function HomePage() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+
   return (
     <div>
       <Button onClick={() => setShow(!show)}>open</Button>

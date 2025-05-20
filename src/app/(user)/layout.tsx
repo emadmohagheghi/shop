@@ -3,6 +3,7 @@ import '../globals.css';
 import localFont from 'next/font/local';
 import { Header } from '../_components/header';
 import NextTopLoader from 'nextjs-toploader';
+import { Notifications } from '../_components/ui/notification/notification';
 
 const iranyekan = localFont({
   src: [
@@ -43,8 +44,9 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${iranyekan.variable} antialiased bg-white`}>
-        <Header />
         <NextTopLoader showSpinner={false} color="#5e0a8e" />
+        <Notifications />
+        <Header />
         <main className="mt-[75px] lg:mt-[160px]">{children}</main>
       </body>
     </html>
