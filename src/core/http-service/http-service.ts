@@ -1,5 +1,3 @@
-import { API_URL } from '@/configs/global';
-
 import { ApiError } from '@/types/http-errors.interface';
 import axios, {
   AxiosRequestConfig,
@@ -8,6 +6,8 @@ import axios, {
 } from 'axios';
 
 import { errorHandler, networkErrorStrategy } from './http-error-strategies';
+
+const API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const httpService = axios.create({
   baseURL: API_URL,

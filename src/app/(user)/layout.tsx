@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import { Header } from '../_components/header';
 import NextTopLoader from 'nextjs-toploader';
 import { Notifications } from '../_components/ui/notification/notification';
+import QueryProvider from '@/providers/react-query-provider';
 
 const iranyekan = localFont({
   src: [
@@ -46,8 +47,10 @@ export default function RootLayout({
       <body className={`${iranyekan.variable} antialiased bg-white`}>
         <NextTopLoader showSpinner={false} color="#5e0a8e" />
         <Notifications />
-        <Header />
-        <main className="mt-[75px] lg:mt-[160px]">{children}</main>
+        <QueryProvider>
+          <Header />
+          <main className="mt-[75px] lg:mt-[160px]">{children}</main>
+        </QueryProvider>
       </body>
     </html>
   );
