@@ -34,15 +34,8 @@ export const OffersSlider = ({ products }: { products: Product[] }) => {
               <ArrowLeft2 color="white" size={24} />
             </p>
           </Link>
-          {products.map((product, index) => (
-            <ProductCard
-              key={index}
-              image={product.image}
-              title={product.title}
-              originalPrice={product.originalPrice}
-              discountPercentage={product.discountPercentage}
-              discountedPrice={product.discountedPrice}
-            />
+          {products.map((product) => (
+            <ProductCard key={`product-${product.id}`} {...product}/>
           ))}
         </Carousel>
       </div>

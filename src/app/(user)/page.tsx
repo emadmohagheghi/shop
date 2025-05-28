@@ -47,60 +47,70 @@ const categories = [
 
 const offersProducts = [
   {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
+    id: 3,
+    image: 'images/2025/05/22/YgA2jQWdYlq3UOqg810b35PR0UH4ou.webp',
+    title_ir: 'ایفون 16 پرو',
+    title_en: 'ihpone 16 pro',
+    url: '/product/21032/ihpone-16-pro',
+    stockrecord: {
+      sale_price: 145000,
+      special_sale_price: 135000,
+      special_sale_price_start_at: null,
+      special_sale_price_end_at: null,
+      num_stock: 10,
+      in_order_limit: null,
+    },
+    track_stock: true,
+    is_available_in_stock: true,
+    brand: {
+      title_ir: 'اپل',
+      title_en: 'apple',
+      slug: 'apple',
+    },
   },
   {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
+    id: 3,
+    image: 'images/2025/05/22/YgA2jQWdYlq3UOqg810b35PR0UH4ou.webp',
+    title_ir: 'ایفون 16 پرو',
+    title_en: 'ihpone 16 pro',
+    url: '/product/21032/ihpone-16-pro',
+    stockrecord: {
+      sale_price: 145000,
+      special_sale_price: 135000,
+      special_sale_price_start_at: null,
+      special_sale_price_end_at: null,
+      num_stock: 10,
+      in_order_limit: null,
+    },
+    track_stock: true,
+    is_available_in_stock: true,
+    brand: {
+      title_ir: 'اپل',
+      title_en: 'apple',
+      slug: 'apple',
+    },
   },
   {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
-  },
-  {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
-  },
-  {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
-  },
-  {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
-  },
-  {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
-  },
-  {
-    originalPrice: 100000,
-    image: '/images/simple-product.jpg',
-    title: 'ایفون 16 پرو مکس 256/8',
-    discountPercentage: 10,
-    discountedPrice: 90000,
+    id: 3,
+    image: 'images/2025/05/22/YgA2jQWdYlq3UOqg810b35PR0UH4ou.webp',
+    title_ir: 'ایفون 16 پرو',
+    title_en: 'ihpone 16 pro',
+    url: '/product/21032/ihpone-16-pro',
+    stockrecord: {
+      sale_price: 145000,
+      special_sale_price: 135000,
+      special_sale_price_start_at: null,
+      special_sale_price_end_at: null,
+      num_stock: 10,
+      in_order_limit: null,
+    },
+    track_stock: true,
+    is_available_in_stock: true,
+    brand: {
+      title_ir: 'اپل',
+      title_en: 'apple',
+      slug: 'apple',
+    },
   },
 ];
 
@@ -135,7 +145,7 @@ export default async function Home() {
   // Fetch data from API
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/content/home/data/`,
-    { cache: 'no-store' }
+    { cache: 'no-store', next: { revalidate: 3600 } }
   );
   const data = await res.json();
 

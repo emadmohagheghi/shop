@@ -1,8 +1,2 @@
-export type ProductCardProps = {
-  title: string;
-  image: string;
-  originalPrice: number;
-  discountedPrice?: number;
-  discountPercentage?: number;
-  isFavorite?: boolean;
-};
+import { Product } from "@/types/product.types";
+export type ProductCardProps = Product

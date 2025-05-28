@@ -34,9 +34,6 @@ export const Carousel = ({
         slidesPerView={'auto'}
         spaceBetween={10}
         freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
         modules={[FreeMode]}
       >
         {React.Children.map(children, (child, index) => (

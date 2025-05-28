@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-import { imageUrl } from '@/utils/images';
+import { imageUrl } from '@/utils/product';
 import { HomeSliderProps } from './home-slider.types';
 
 import 'swiper/css';
