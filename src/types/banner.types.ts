@@ -1,8 +1,8 @@
 export type Banner = {
   id: number;
-  image: { name: string };
+  image: Record<string, string>;
   title: string;
-  position: string;
+  position: "HOME_SLIDER_BANNER" | "HOME_SIDE_BANNER";
   url: string;
   is_external: boolean;
 };

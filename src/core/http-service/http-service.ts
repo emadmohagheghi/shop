@@ -4,6 +4,7 @@ import axios, {
   AxiosRequestHeaders,
   AxiosResponse,
 } from 'axios';
+import { ApiResponseType } from '@/types/response';
 
 import { errorHandler, networkErrorStrategy } from './http-error-strategies';
 
@@ -36,15 +37,15 @@ httpService.interceptors.response.use(
 async function apiBase<T>(
   url: string,
   options?: AxiosRequestConfig
-): Promise<T> {
-  const response: AxiosResponse = await httpService(url, options);
-  return response.data as T;
+): Promise<ApiResponseType<T>> {
+  const response = await httpService(url, options);
+  return response.data as ApiResponseType<T>;
 }
 
 async function readData<T>(
   url: string,
   headers?: AxiosRequestHeaders
-): Promise<T> {
+): Promise<ApiResponseType<T>> {
   const options: AxiosRequestConfig = {
     headers: headers,
     method: 'GET',
@@ -56,7 +57,7 @@ async function createData<TModel, TResult>(
   url: string,
   data: TModel,
   headers?: AxiosRequestHeaders
-): Promise<TResult> {
+): Promise<ApiResponseType<TResult>> {
   const options: AxiosRequestConfig = {
     method: 'POST',
     headers: headers,
@@ -70,7 +71,7 @@ async function updateData<TModel, TResult>(
   url: string,
   data: TModel,
   headers?: AxiosRequestHeaders
-): Promise<TResult> {
+): Promise<ApiResponseType<TResult>> {
   const options: AxiosRequestConfig = {
     method: 'PUT',
     headers: headers,
@@ -83,7 +84,7 @@ async function updateData<TModel, TResult>(
 async function deleteData(
   url: string,
   headers?: AxiosRequestHeaders
-): Promise<void> {
+): Promise<ApiResponseType<void>> {
   const options: AxiosRequestConfig = {
     method: 'DELETE',
     headers: headers,

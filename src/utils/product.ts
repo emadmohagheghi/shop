@@ -5,7 +5,8 @@ export function imageUrl(name: string): string {
 export function calculateDiscountPercentage(
   originalPrice: number,
   discountedPrice: number
-): number {
+): number | null{
   if (originalPrice <= 0) return 0;
+  if (!discountedPrice) return null;
   return Math.floor(((originalPrice - discountedPrice) / originalPrice) * 100);
 }

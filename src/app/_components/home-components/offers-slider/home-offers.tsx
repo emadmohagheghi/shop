@@ -10,9 +10,9 @@ import { Product } from '../../../../types/product.types';
 
 export const OffersSlider = ({ products }: { products: Product[] }) => {
   return (
-    <div className="container my-3 px-3">
-      <div className="bg-primary rounded-lg !p-3">
-        <div className="w-full text-white lg:hidden flex justify-between mb-1">
+    <div className="container px-3">
+      <div className="bg-primary rounded-lg !p-3 space-y-2">
+        <div className="w-full text-white lg:hidden flex justify-between ">
           <p className="text-xl">تخفیف های شگفت انگیز</p>
           <Link className="flex items-center" href="">
             <p className="text-sm">مشاهده همه</p>

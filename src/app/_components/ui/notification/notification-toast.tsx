@@ -10,7 +10,7 @@ import {
   CloseCircle,
 } from 'iconsax-react';
 import { NotificationToastProps } from './notification.type';
-import { useNotificationStore } from '@/app/stores/notification.store';
+import { useNotificationStore } from '@/stores/notification.store';
 
 const notificationTypes: Record<NotificationType, string> = {
   success: 'bg-success',
@@ -39,14 +39,14 @@ export const NotificationToast: React.FC<NotificationToastProps> = ({
       <div
         className={`inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-md ${notificationTypes[type]}`}
       >
-        <NotificationBing size={20} color='white' />
+        <NotificationBing size={20} color="white" />
       </div>
       <div className="text-sm font-semibold">{message}</div>
       <button
         className="mr-auto hover:text-white mt-2"
         onClick={() => dismissNotification(id)}
       >
-        <CloseCircle className='cursor-pointer' color='white' size={20} />
+        <CloseCircle className="cursor-pointer" color="white" size={20} />
       </button>
       <Progress
         className="!absolute bottom-1 left-2 right-2 !w-auto"

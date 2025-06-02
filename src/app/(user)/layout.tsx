@@ -5,6 +5,9 @@ import { Header } from '../_components/header';
 import NextTopLoader from 'nextjs-toploader';
 import { Notifications } from '../_components/ui/notification/notification';
 import QueryProvider from '@/providers/react-query-provider';
+import { GetHeaderData } from '@/service/categories-service';
+import { useHeaderStore } from '@/stores/header-data.store';
+import HeaderDataProvider from '@/providers/header-data-provider';
 
 const iranyekan = localFont({
   src: [
@@ -37,19 +40,22 @@ export const metadata: Metadata = {
   description: 'فروشگاه آنلاین تکنوشاپ',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="fa" dir="rtl">
       <body className={`${iranyekan.variable} antialiased bg-white`}>
         <NextTopLoader showSpinner={false} color="#5e0a8e" />
         <Notifications />
         <QueryProvider>
-          <Header />
-          <main className="mt-[75px] lg:mt-[160px]">{children}</main>
+          <HeaderDataProvider>
+            <Header />
+            <main className="mt-[75px] lg:mt-[160px]">{children}</main>
+          </HeaderDataProvider>
         </QueryProvider>
       </body>
     </html>

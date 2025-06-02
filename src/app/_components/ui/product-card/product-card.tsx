@@ -41,14 +41,12 @@ export const ProductCard = ({
         <h3 className="text-center text-black font-bold text-sm md:text-lg line-clamp-2">
           {title_ir}
         </h3>
-        {special_sale_price && (
           <span
-            className={`self-end font-bold text-sm md:text-lg line-through text-gray-600
+            className={`self-end font-bold text-sm md:text-lg line-through text-gray-600 ${!special_sale_price && "opacity-0"}
           `}
           >
             {sale_price.toLocaleString()} تومان
           </span>
-        )}
         <span
           className={`self-end font-bold md:text-lg bg-primary text-white px-4 py-1.5 rounded-lg text-sm ${
             !special_sale_price && 'mt-2'

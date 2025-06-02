@@ -20,15 +20,17 @@ export const Carousel = ({
 }: CarouselProps) => {
   return (
     <div className={className}>
-      <div className="flex justify-between mb-3">
-        {title && <h3 className="text-2xl font-medium">{title}</h3>}
-        {link && (
-          <Link className="flex items-center" href={link}>
-            <p className="text-nowrap">مشاهده همه</p>
-            <ArrowLeft2 className="" size={24} />
-          </Link>
-        )}
-      </div>
+      {title && link && (
+        <div className="flex justify-between mb-5">
+          {title && <h3 className="text-2xl font-medium">{title}</h3>}
+          {link && (
+            <Link className="flex items-center" href={link}>
+              <p className="text-nowrap">مشاهده همه</p>
+              <ArrowLeft2 className="" size={24} />
+            </Link>
+          )}
+        </div>
+      )}
       <Swiper
         className="mySwiper carousel"
         slidesPerView={'auto'}

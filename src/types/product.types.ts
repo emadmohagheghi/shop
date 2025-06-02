@@ -1,12 +1,3 @@
-// export type Product = {
-//   title: string;
-//   image: string;
-//   originalPrice: number;
-//   discountedPrice?: number;
-//   discountPercentage?: number;
-//   isFavorite?: boolean;
-// };
-
 export type Product = {
   id: number;
   image: string;
