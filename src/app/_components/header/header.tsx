@@ -7,7 +7,7 @@ import { Input } from '../ui/input';
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 w-full z-10">
+    <header className="fixed top-0 w-full z-90">
       <div className="hidden lg:block bg-white">
         <div className="container mx-auto flex items-center justify-between gap-4 p-3 ">
           <div>
@@ -21,7 +21,14 @@ export const Header = () => {
             </Link>
           </div>
           <div className="relative w-full max-w-[600px]">
-            <Input />
+            <Input
+              icon={
+                <SearchNormal1
+                  size="28px"
+                  className={`stroke-gray-500 group-focus-within:stroke-primary`}
+                />
+              }
+            />
           </div>
           <div className="flex items-center gap-5">
             <Link href="/auth">
@@ -42,7 +49,15 @@ export const Header = () => {
       <Navbar />
       <div className="lg:hidden p-3 bg-white relative">
         <div className="relative group">
-          <Input className="focus:placeholder:opacity-0" />
+          <Input
+            icon={
+              <SearchNormal1
+                size="28px"
+                className={`stroke-gray-500 group-focus-within:stroke-primary`}
+              />
+            }
+            className="focus:placeholder:opacity-0"
+          />
           <span className="absolute top-1/2 -translate-1/2 text-gray-600 right-15 group-focus-within:hidden pointer-events-none">
             در{' '}
             <span className="text-primary text-lg font-bold pointer-events-none">

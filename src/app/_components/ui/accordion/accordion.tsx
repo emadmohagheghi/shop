@@ -13,7 +13,7 @@ export const Accordion: React.FC<AccordionProps> = ({ data }) => {
   return (
     <div className="rounded-t-xl overflow-hidden divide-y-">
       {data.map((item, index) => (
-        <div className='bg-[#fff]' key={`accordion-${item.id}`}>
+        <div className='bg-[#fff] rounded-2xl' key={`accordion-${item.id}`}>
           <h2>
             <button
               onClick={() => toggleAccordion(index)}
@@ -21,7 +21,7 @@ export const Accordion: React.FC<AccordionProps> = ({ data }) => {
               className={`text-base flex items-center justify-between w-full p-5 font-medium text-right my-2
                 `}
             >
-              <span>{item.title}</span>
+              <span className='text-lg font-normal my-2 '>{item.title}</span>
               {activeIndex === index ? (
                 <ArrowUp2 size={18} className='stroke-primary' />
               ) : (

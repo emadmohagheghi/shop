@@ -11,11 +11,9 @@ import {
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-
 export const Navbar = () => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
 
   const handleScroll = () => {
     if (window.scrollY < lastScrollY) {
@@ -41,14 +39,13 @@ export const Navbar = () => {
         }`}
       >
         <nav className="container mx-auto flex items-center p-3 gap-8 text-lg">
-          <Link className="flex items-center gap-1 group" href="/products" >
+          <Link className="flex items-center gap-1 group" href="/products">
             دسته بندی کالا ها
             <ArrowDown2 color="black" size={24} />
             {/* mega menu */}
             {/* <div className='bg-black/20  fixed top-32 left-0 h-screen w-screen'>
               sghl
             </div> */}
-
           </Link>
 
           <Link href="/">تخفیف ها و پیشنهاد ها </Link>
@@ -62,7 +59,7 @@ export const Navbar = () => {
       </div>
 
       <div
-        className={`lg:hidden w-screen flex gap-5 *:w-1/4 fixed bottom-0 p-2 bg-white transition-transform duration-300 left-0 shadow-2xl text-black z-10 ${
+        className={`lg:hidden w-screen flex gap-5 *:w-1/4 fixed bottom-0 p-2 bg-white transition-transform duration-300 left-0 shadow-2xl text-black z-90 ${
           !isScrollingUp && 'translate-y-20'
         }`}
       >

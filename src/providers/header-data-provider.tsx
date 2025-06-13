@@ -1,10 +1,13 @@
+'use client';
+import { useEffect } from 'react';
 import { HeaderType } from '@/types/header.types';
+import { useHeaderStore } from '@/stores/header-data.store';
 
-interface HeaderDataProviderProps {
+type HeaderDataProviderProps = {
   children: React.ReactNode;
-}
+};
 
-const getHeaderData = async () => {
+export const getHeaderData = async () => {
   const res = await fetch(
     process.env.NEXT_PUBLIC_BASE_URL + '/api/content/header/data/'
   );
@@ -12,10 +15,22 @@ const getHeaderData = async () => {
   return data.data;
 };
 
-export const headerData: HeaderType = await getHeaderData();
-
 export default function HeaderDataProvider({
   children,
 }: HeaderDataProviderProps) {
+  const setHeaderData = useHeaderStore((state) => state.setHeaderData);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getHeaderData();
+        setHeaderData(data);
+      } catch (error) {
+        console.error('Error fetching header data:', error);
+      }
+    };
+    fetchData();
+  }, [setHeaderData]);
+
   return <>{children}</>;
 }

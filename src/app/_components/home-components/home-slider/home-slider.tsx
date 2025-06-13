@@ -17,7 +17,7 @@ export const HomeSlider = ({ banners }: HomeSliderProps) => {
     (banner) => banner.position === 'HOME_SIDE_BANNER'
   );
   return (
-    <div className="container flex flex-col lg:flex-row gap-5 px-3">
+    <div className="container flex flex-col lg:flex-row gap-5">
       <div className="w-full lg:w-3/4 ">
         <Swiper
           modules={[Pagination, Autoplay]}

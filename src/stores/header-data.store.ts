@@ -2,19 +2,19 @@ import { HeaderType } from '@/types/header.types';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-type HeaderStoreActions = {
+type HeaderStore  = HeaderType & {
   setHeaderData: (header: HeaderType) => void;
 };
 
-export const useHeaderStore = create<HeaderType & HeaderStoreActions>()(
+export const useHeaderStore = create<HeaderStore>()(
   devtools((set, get) => ({
     categories: [],
     brands: [],
     setHeaderData: (header: HeaderType) => {
-      set((state) => ({
+      set({
         categories: header.categories,
         brands: header.brands,
-      }));
+      });
     },
   }))
 );

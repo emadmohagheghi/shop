@@ -20,12 +20,7 @@ export const Input = ({
   isDisabled = false,
   placeholder = 'جستجو',
   className,
-  icon = (
-    <SearchNormal1
-      size="28px"
-      className={`stroke-gray-500 group-focus-within:stroke-primary`}
-    />
-  ),
+  icon,
   searchPath = '/search',
   ...props
 }: InputProps) => {
@@ -40,6 +35,7 @@ export const Input = ({
   );
 
   const handleSearch = () => {
+    if (searchPath === '') return;
     if (searchTerm.trim()) {
       router.push(`${searchPath}?q=${encodeURIComponent(searchTerm.trim())}`);
     }

@@ -8,6 +8,7 @@ import QueryProvider from '@/providers/react-query-provider';
 import { GetHeaderData } from '@/service/categories-service';
 import { useHeaderStore } from '@/stores/header-data.store';
 import HeaderDataProvider from '@/providers/header-data-provider';
+import { Footer } from '../_components/footer';
 
 const iranyekan = localFont({
   src: [
