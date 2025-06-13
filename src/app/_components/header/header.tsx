@@ -1,15 +1,15 @@
-import { LoginCurve, SearchNormal1, ShoppingCart } from 'iconsax-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '../ui/button';
-import { Navbar } from './navbar';
-import { Input } from '../ui/input';
+import { LoginCurve, SearchNormal1, ShoppingCart } from "iconsax-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { Navbar } from "./navbar";
+import { Input } from "../ui/input";
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 w-full z-90">
-      <div className="hidden lg:block bg-white">
-        <div className="container mx-auto flex items-center justify-between gap-4 p-3 ">
+    <header className="fixed top-0 z-90 w-full">
+      <div className="hidden bg-white lg:block">
+        <div className="container mx-auto flex items-center justify-between gap-4 p-3">
           <div>
             <Link href="/">
               <Image
@@ -25,7 +25,7 @@ export const Header = () => {
               icon={
                 <SearchNormal1
                   size="28px"
-                  className={`stroke-gray-500 group-focus-within:stroke-primary`}
+                  className={`group-focus-within:stroke-primary stroke-gray-500`}
                 />
               }
             />
@@ -39,7 +39,7 @@ export const Header = () => {
                 ورود / ثبت نام
               </Button>
             </Link>
-            <span className="w-[1px] h-8 bg-gray-500"></span>
+            <span className="h-8 w-[1px] bg-gray-500"></span>
             <Link href="/">
               <ShoppingCart size="32" color="black" />
             </Link>
@@ -47,20 +47,20 @@ export const Header = () => {
         </div>
       </div>
       <Navbar />
-      <div className="lg:hidden p-3 bg-white relative">
-        <div className="relative group">
+      <div className="relative bg-white p-3 lg:hidden">
+        <div className="group relative">
           <Input
             icon={
               <SearchNormal1
                 size="28px"
-                className={`stroke-gray-500 group-focus-within:stroke-primary`}
+                className={`group-focus-within:stroke-primary stroke-gray-500`}
               />
             }
             className="focus:placeholder:opacity-0"
           />
-          <span className="absolute top-1/2 -translate-1/2 text-gray-600 right-15 group-focus-within:hidden pointer-events-none">
-            در{' '}
-            <span className="text-primary text-lg font-bold pointer-events-none">
+          <span className="pointer-events-none absolute top-1/2 right-15 -translate-1/2 text-gray-600 group-focus-within:hidden">
+            در{" "}
+            <span className="text-primary pointer-events-none text-lg font-bold">
               تکنوشاپ
             </span>
           </span>

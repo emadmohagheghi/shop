@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { ProductCard } from '../../ui/product-card';
-import { ArrowLeft2 } from 'iconsax-react';
+import { ProductCard } from "../../ui/product-card";
+import { ArrowLeft2 } from "iconsax-react";
 
-import Link from 'next/link';
-import { Timer } from '../../ui/timer';
-import { Carousel } from '../../ui/carousel';
-import { Product } from '../../../../types/product.types';
+import Link from "next/link";
+import { Timer } from "../../ui/timer";
+import { Carousel } from "../../ui/carousel";
+import { Product } from "../../../../types/product.types";
 
 export const OffersSlider = ({ products }: { products: Product[] }) => {
   return (
     <div className="container">
-      <div className="bg-primary rounded-lg !p-3 space-y-2">
-        <div className="w-full text-white lg:hidden flex justify-between ">
+      <div className="bg-primary space-y-2 rounded-lg !p-3">
+        <div className="flex w-full justify-between text-white lg:hidden">
           <p className="text-xl">تخفیف های شگفت انگیز</p>
           <Link className="flex items-center" href="">
             <p className="text-sm">مشاهده همه</p>
@@ -23,9 +23,9 @@ export const OffersSlider = ({ products }: { products: Product[] }) => {
         <Carousel>
           <Link
             href="/products/offers"
-            className="w-[300px] h-full lg:flex flex-col justify-center items-center gap-12 p-5 mt-5 text-white hidden"
+            className="mt-5 hidden h-full w-[300px] flex-col items-center justify-center gap-12 p-5 text-white lg:flex"
           >
-            <h3 className="text-center font-medium text-[40px] leading-[140%] mt-auto">
+            <h3 className="mt-auto text-center text-[40px] leading-[140%] font-medium">
               تخفیف های شگفت انگیز
             </h3>
             <Timer initialSeconds={150} />
@@ -35,7 +35,7 @@ export const OffersSlider = ({ products }: { products: Product[] }) => {
             </p>
           </Link>
           {products.map((product) => (
-            <ProductCard key={`product-${product.id}`} {...product}/>
+            <ProductCard key={`product-${product.id}`} {...product} />
           ))}
         </Carousel>
       </div>

@@ -1,6 +1,6 @@
-'use client';
-import { secondsToHHMMSS } from '@/utils/time';
-import { useState, useEffect } from 'react';
+"use client";
+import { secondsToHHMMSS } from "@/utils/time";
+import { useState, useEffect } from "react";
 
 export const Timer = ({ initialSeconds }: { initialSeconds: number }) => {
   const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
@@ -20,18 +20,18 @@ export const Timer = ({ initialSeconds }: { initialSeconds: number }) => {
   const { hours, minutes, seconds } = secondsToHHMMSS(Math.max(secondsLeft, 0));
 
   return (
-    <div className="flex items-center w-full bg-white text-primary divide-primary divide-x-[1px] p-2 rounded-xl *:flex *:flex-col *:items-center  *:px-4 *:flex-1">
+    <div className="text-primary divide-primary flex w-full items-center divide-x-[1px] rounded-xl bg-white p-2 *:flex *:flex-1 *:flex-col *:items-center *:px-4">
       <div>
-        <p className='font-medium text-3xl'>{seconds}</p>
-        <p className='text-[10px]'>ثانیه</p>
+        <p className="text-3xl font-medium">{seconds}</p>
+        <p className="text-[10px]">ثانیه</p>
       </div>
       <div>
-        <p className='font-medium text-3xl'>{minutes}</p>
-        <p className='text-[10px]'>دقیقه</p>
+        <p className="text-3xl font-medium">{minutes}</p>
+        <p className="text-[10px]">دقیقه</p>
       </div>
       <div>
-        <p className='font-medium text-3xl'>{hours}</p>
-        <p className='text-[10px]'>ساعت</p>
+        <p className="text-3xl font-medium">{hours}</p>
+        <p className="text-[10px]">ساعت</p>
       </div>
     </div>
   );

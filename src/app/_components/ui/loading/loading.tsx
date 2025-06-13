@@ -1,35 +1,35 @@
-import classNames from 'classnames';
-import { Size } from '../../types/size.types';
-import { LoadingProps } from './loading.types';
-import { Variant } from '../../types/varients.types';
+import classNames from "classnames";
+import { Size } from "../../types/size.types";
+import { LoadingProps } from "./loading.types";
+import { Variant } from "../../types/varients.types";
 
 const sizeClasses: Record<Size, string> = {
-  tiny: 'size-4',
-  small: 'size-6',
-  normal: 'size-8',
-  large: 'size-10',
+  tiny: "size-4",
+  small: "size-6",
+  normal: "size-8",
+  large: "size-10",
 };
 
 const variantClasses: Record<Variant, string> = {
-  neutral: 'fill-gray-700',
-  success: 'fill-success',
-  error: 'fill-error',
-  warning: 'fill-warning',
-  primary: 'fill-primary',
+  neutral: "fill-gray-700",
+  success: "fill-success",
+  error: "fill-error",
+  warning: "fill-warning",
+  primary: "fill-primary",
 };
 
 export const Loading = ({
-  variant = 'neutral',
-  size = 'normal',
+  variant = "neutral",
+  size = "normal",
   className,
 }: LoadingProps) => {
   const classes = classNames(
     className,
-    'inline',
-    'animate-spin',
-    'text-gray-200',
+    "inline",
+    "animate-spin",
+    "text-gray-200",
     { [sizeClasses[size]]: size },
-    { [variantClasses[variant]]: variant }
+    { [variantClasses[variant]]: variant },
   );
   return (
     <>

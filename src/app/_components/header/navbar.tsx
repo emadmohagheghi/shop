@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   ArrowDown2,
   Category,
@@ -7,9 +7,9 @@ import {
   SearchNormal1,
   ShoppingCart,
   User,
-} from 'iconsax-react';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+} from "iconsax-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
@@ -25,21 +25,21 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
 
   return (
     <>
       <div
-        className={`absolute w-full transition-all duration-400 bg-white text-black -z-10 hidden lg:block shadow-md ${
-          !isScrollingUp && '-translate-y-14'
+        className={`absolute -z-10 hidden w-full bg-white text-black shadow-md transition-all duration-400 lg:block ${
+          !isScrollingUp && "-translate-y-14"
         }`}
       >
-        <nav className="container mx-auto flex items-center p-3 gap-8 text-lg">
-          <Link className="flex items-center gap-1 group" href="/products">
+        <nav className="container mx-auto flex items-center gap-8 p-3 text-lg">
+          <Link className="group flex items-center gap-1" href="/products">
             دسته بندی کالا ها
             <ArrowDown2 color="black" size={24} />
             {/* mega menu */}
@@ -52,41 +52,41 @@ export const Navbar = () => {
           <Link href="/">فروش ویژه</Link>
           <Link href="/">خرید اقساطی</Link>
           <Link href="/">راهنمای خرید</Link>
-          <span className="flex items-center justify-center bg-black rounded-full size-[32px] cursor-pointer">
-            <Moon className="stroke-white fill-white" size={16} />
+          <span className="flex size-[32px] cursor-pointer items-center justify-center rounded-full bg-black">
+            <Moon className="fill-white stroke-white" size={16} />
           </span>
         </nav>
       </div>
 
       <div
-        className={`lg:hidden w-screen flex gap-5 *:w-1/4 fixed bottom-0 p-2 bg-white transition-transform duration-300 left-0 shadow-2xl text-black z-90 ${
-          !isScrollingUp && 'translate-y-20'
+        className={`fixed bottom-0 left-0 z-90 flex w-screen gap-5 bg-white p-2 text-black shadow-2xl transition-transform duration-300 *:w-1/4 lg:hidden ${
+          !isScrollingUp && "translate-y-20"
         }`}
       >
         <Link
           href="/"
-          className={`flex flex-col items-center justify-center gap-2 text-sm md:text-base text-primary`}
+          className={`text-primary flex flex-col items-center justify-center gap-2 text-sm md:text-base`}
         >
           <Home size="30px" className={`stroke-primary`} />
           خانه
         </Link>
         <Link
           href="/"
-          className={`flex flex-col items-center justify-center gap-2 text-sm md:text-base `}
+          className={`flex flex-col items-center justify-center gap-2 text-sm md:text-base`}
         >
           <Category size="30px" className={`stroke-black`} />
           دسته بندی
         </Link>
         <Link
           href="/"
-          className={`flex flex-col items-center justify-center gap-2 text-sm md:text-base `}
+          className={`flex flex-col items-center justify-center gap-2 text-sm md:text-base`}
         >
           <ShoppingCart size="30px" className={`stroke-black`} />
           سبد خرید
         </Link>
         <Link
           href="/"
-          className={`flex flex-col items-center justify-center gap-2 text-sm md:text-base `}
+          className={`flex flex-col items-center justify-center gap-2 text-sm md:text-base`}
         >
           <User size="30px" className={`stroke-black`} />
           حساب من

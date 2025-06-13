@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { Heart } from 'iconsax-react';
-import { Product } from '../../../../types/product.types';
-import { calculateDiscountPercentage, imageUrl } from '@/utils/product';
+import Image from "next/image";
+import Link from "next/link";
+import { Heart } from "iconsax-react";
+import { Product } from "../../../../types/product.types";
+import { calculateDiscountPercentage, imageUrl } from "@/utils/product";
 
 export const ProductCard = ({
   id,
@@ -16,45 +16,44 @@ export const ProductCard = ({
   const { sale_price, special_sale_price } = stockrecord;
   const discountPercentage = calculateDiscountPercentage(
     sale_price,
-    special_sale_price || 0
+    special_sale_price || 0,
   );
   return (
     <>
       <Link
         href={`products/${title_en}`}
-        className="flex flex-col items-center w-[170px] md:w-[200px] bg-[#fff] p-3 gap-2 rounded-lg"
+        className="flex w-[170px] flex-col items-center gap-2 rounded-lg bg-[#fff] p-3 md:w-[200px]"
       >
-        <div className="flex items-center justify-between w-full">
+        <div className="flex w-full items-center justify-between">
           <Heart
             className={`stroke-primary cursor-pointer ${
-              isFavorite && 'fill-primary'
+              isFavorite && "fill-primary"
             }`}
             size={24}
           />
           {discountPercentage && (
-            <span className="bg-error-focus px-4 py-[2px] rounded-full text-white">
+            <span className="bg-error-focus rounded-full px-4 py-[2px] text-white">
               {discountPercentage}%
             </span>
           )}
         </div>
         <Image src={imageUrl(image)} alt="" width={230} height={230} />
-        <h3 className="text-center text-black font-bold text-sm md:text-lg line-clamp-2">
+        <h3 className="line-clamp-2 text-center text-sm font-bold text-black md:text-lg">
           {title_ir}
         </h3>
-          <span
-            className={`self-end font-bold text-sm md:text-lg line-through text-gray-600 ${!special_sale_price && "opacity-0"}
-          `}
-          >
-            {sale_price.toLocaleString()} تومان
-          </span>
         <span
-          className={`self-end font-bold md:text-lg bg-primary text-white px-4 py-1.5 rounded-lg text-sm ${
-            !special_sale_price && 'mt-2'
+          className={`self-end text-sm font-bold text-gray-600 line-through md:text-lg ${!special_sale_price && "opacity-0"} `}
+        >
+          {sale_price.toLocaleString()} تومان
+        </span>
+        <span
+          className={`bg-primary self-end rounded-lg px-4 py-1.5 text-sm font-bold text-white md:text-lg ${
+            !special_sale_price && "mt-2"
           }`}
         >
           {special_sale_price
             ? special_sale_price.toLocaleString()
-            : sale_price.toLocaleString()}{' '}
+            : sale_price.toLocaleString()}{" "}
           تومان
         </span>
       </Link>

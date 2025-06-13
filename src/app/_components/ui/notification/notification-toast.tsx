@@ -1,55 +1,55 @@
-'use client';
-import { Notification, NotificationType } from '@/types/notification.types';
-import { ReactNode, useEffect, useState } from 'react';
-import { Progress } from '../progress/progress';
+"use client";
+import { Notification, NotificationType } from "@/types/notification.types";
+import { ReactNode, useEffect, useState } from "react";
+import { Progress } from "../progress/progress";
 import {
   TickCircle,
   Warning2,
   NotificationBing,
   Add,
   CloseCircle,
-} from 'iconsax-react';
-import { NotificationToastProps } from './notification.type';
-import { useNotificationStore } from '@/stores/notification.store';
+} from "iconsax-react";
+import { NotificationToastProps } from "./notification.type";
+import { useNotificationStore } from "@/stores/notification.store";
 
 const notificationTypes: Record<NotificationType, string> = {
-  success: 'bg-success',
-  warning: 'bg-warning',
-  error: 'bg-error',
+  success: "bg-success",
+  warning: "bg-warning",
+  error: "bg-error",
 };
 
 export const NotificationToast: React.FC<NotificationToastProps> = ({
   notification: { id, message, type, duration = 5000 },
 }) => {
   const dismissNotification = useNotificationStore(
-    (state) => state.dismissNotification
+    (state) => state.dismissNotification,
   );
   const [progessValue, setProgressValue] = useState<number>(100);
   useEffect(() => {
     const interval = duration / 100;
     const intervalId = setInterval(() => {
       setProgressValue((oldValue) =>
-        Math.max(oldValue - 100 / (duration / interval), 0)
+        Math.max(oldValue - 100 / (duration / interval), 0),
       );
     }, interval);
     return () => clearInterval(intervalId);
   }, [duration]);
   return (
-    <div className="flex gap-3 animate-show-notification relative items-center w-full max-w-xs p-4 m-0 text-gray-400 bg-gray-800 rounded-lg shadow">
+    <div className="animate-show-notification relative m-0 flex w-full max-w-xs items-center gap-3 rounded-lg bg-gray-800 p-4 text-gray-400 shadow">
       <div
-        className={`inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-md ${notificationTypes[type]}`}
+        className={`inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md ${notificationTypes[type]}`}
       >
         <NotificationBing size={20} color="white" />
       </div>
       <div className="text-sm font-semibold">{message}</div>
       <button
-        className="mr-auto hover:text-white mt-2"
+        className="mt-2 mr-auto hover:text-white"
         onClick={() => dismissNotification(id)}
       >
         <CloseCircle className="cursor-pointer" color="white" size={20} />
       </button>
       <Progress
-        className="!absolute bottom-1 left-2 right-2 !w-auto"
+        className="!absolute right-2 bottom-1 left-2 !w-auto"
         size="tiny"
         variant={type}
         value={progessValue}
