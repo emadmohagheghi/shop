@@ -1,58 +1,13 @@
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
 import { Call, Instagram, Sms, Whatsapp, Youtube } from "iconsax-react";
 import { useNotificationStore } from "@/stores/notification.store";
 import Image from "next/image";
+import { Communication } from "./communication";
 
 export const Footer = () => {
-  const showNotification = useNotificationStore(
-    (store) => store.showNotification,
-  );
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    showNotification({
-      message: "ایمیل شما با موفقیت ثبت شد!",
-      type: "success",
-    });
-  };
   return (
     <div className="mt-12">
-      <div className="bg-shade-800">
-        {/* socials */}
-        <div className="container flex flex-col items-center justify-between gap-14 px-3 py-14 text-white lg:flex-row">
-          <div className="flex flex-col gap-3 text-center">
-            <p>
-              برای دریافت آخرین اخبار و تخفیف های جدید، ایمیل خود را وارد کنید
-            </p>
-            <form onSubmit={handleSubmit} className="flex gap-4">
-              <Input
-                required
-                type="email"
-                searchPath=""
-                className="!bg-shade-800 text-white placeholder:text-white"
-                placeholder="ایمیل شما"
-              />
-              <Button variant="primary" type="submit">
-                ثبت
-              </Button>
-            </form>
-          </div>
-          <div>
-            <p className="mb-2 text-center">شبکه های اجتماعی</p>
-            <div className="*:bg-tint-200 flex gap-3 *:cursor-pointer *:rounded-lg *:p-2">
-              <div>
-                <Whatsapp color="white" size={32} />
-              </div>
-              <div>
-                <Instagram color="white" size={32} />
-              </div>
-              <div>
-                <Youtube color="white" size={32} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* socials */}
+      <Communication />
       {/* main */}
       <footer className="container my-12 grid grid-cols-12 gap-x-8 gap-y-4 px-3">
         <div className="text-primary col-span-12 my-8 grid grid-cols-4 gap-8 text-right text-sm font-medium *:col-span-2 *:flex *:flex-col *:gap-8 lg:col-span-9 *:lg:col-span-1">

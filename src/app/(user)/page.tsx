@@ -9,15 +9,14 @@ import { HomeSlider } from "../_components/home-components/home-slider";
 import { CategoriesSlider } from "../_components/home-components/categories-slider";
 import { OffersSlider } from "../_components/home-components/offers-slider";
 import { Carousel } from "../_components/ui/carousel";
-import { NewestProducts } from "../_components/home-components/newest-products";
-import { BestSellingProducts } from "../_components/home-components/best-selling-products";
 import Image from "next/image";
 import { imageUrl } from "@/utils/product";
 import { useHeaderStore } from "@/stores/header-data.store";
 import Link from "next/link";
 import { ArrowLeft2 } from "iconsax-react";
 import { Accordion } from "../_components/ui/accordion";
-import { Footer } from "../_components/footer";
+import { ProductSlider } from "../_components/home-components/product-slider";
+import { Features } from "../_components/home-components/features/features";
 
 const accItems = [
   {
@@ -47,26 +46,39 @@ const accItems = [
 ];
 
 export default function Home() {
-  const { data: Banners, isLoading: isGettingBanners } = useGetBanners();
+  const { data: banners = [], isLoading: isGettingBanners } = useGetBanners();
 
-  const { data: specialProducts, isLoading: isGettingspecialProducts } =
+  const { data: specialProducts = [], isLoading: isGettingspecialProducts } =
     useGetSpecialProducts();
 
-  const { data: newestProducts, isLoading: isGettingNewestProducts } =
+  const { data: newestProducts = [], isLoading: isGettingNewestProducts } =
     useGetNewestProducts();
 
-  const { data: bestSellingProducts, isLoading: isGettingBestSellingProducts } =
-    useGetBestSellingProducts();
+  const {
+    data: bestSellingProducts = [],
+    isLoading: isGettingBestSellingProducts,
+  } = useGetBestSellingProducts();
 
   const { categories, brands } = useHeaderStore();
 
   return (
     <>
       <div className="w-full space-y-12 overflow-hidden px-5">
-        {Banners && <HomeSlider banners={Banners} />}
-        {categories && <CategoriesSlider categories={categories} />}
-        {specialProducts && <OffersSlider products={specialProducts} />}
-        {newestProducts && <NewestProducts products={newestProducts} />}
+        <HomeSlider banners={banners} isLoading={isGettingBanners} />
+        <CategoriesSlider categories={categories} />
+        <OffersSlider
+          products={specialProducts}
+          isLoading={isGettingspecialProducts}
+        />
+
+        <ProductSlider
+          className="text-primary stroke-primary container"
+          link="/products"
+          title="جدیدترین محصولات"
+          products={newestProducts}
+          isLoading={isGettingNewestProducts}
+        />
+
         {/* second banner slider */}
         <div className="container">
           <Carousel>
@@ -90,9 +102,15 @@ export default function Home() {
             />
           </Carousel>
         </div>
-        {bestSellingProducts && (
-          <BestSellingProducts products={bestSellingProducts} />
-        )}
+
+        <ProductSlider
+          className="text-primary stroke-primary container"
+          link="/products"
+          title="پیشنهادات"
+          products={bestSellingProducts}
+          isLoading={isGettingBestSellingProducts}
+        />
+
         {/* papular brands */}
         <div className="container mb-16">
           <div className="border-primary text-primary flex w-full justify-between border-b-2 pb-3 text-2xl">
@@ -152,26 +170,8 @@ export default function Home() {
           <Accordion data={accItems} />
         </div>
         {/* features */}
-        <div className="container flex flex-wrap justify-between gap-5 text-lg *:flex *:min-w-[45%] *:flex-1 *:flex-col-reverse *:items-center *:justify-center *:gap-2 *:lg:min-w-fit *:lg:flex-row">
-          <div className="">
-            <p className="whitespace-nowrap">پشتیبانی 24 ساعته</p>
-            <Image alt="" width={72} height={72} src="/images/features/1.svg" />
-          </div>
-          <div className="">
-            <p className="whitespace-nowrap">تحویل سریع</p>
-            <Image alt="" width={72} height={72} src="/images/features/2.svg" />
-          </div>
-          <div className="">
-            <p className="whitespace-nowrap">ضمانت کالا</p>
-            <Image alt="" width={72} height={72} src="/images/features/3.svg" />
-          </div>
-          <div className="">
-            <p className="whitespace-nowrap">جدیدترین تکنولوژی</p>
-            <Image alt="" width={72} height={72} src="/images/features/4.svg" />
-          </div>
-        </div>
+        <Features />
       </div>
-      <Footer />
     </>
   );
 }

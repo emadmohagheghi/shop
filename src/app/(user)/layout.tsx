@@ -55,6 +55,7 @@ export default async function RootLayout({
           <HeaderDataProvider>
             <Header />
             <main className="mt-[75px] lg:mt-[160px]">{children}</main>
+            <Footer />
           </HeaderDataProvider>
         </QueryProvider>
       </body>

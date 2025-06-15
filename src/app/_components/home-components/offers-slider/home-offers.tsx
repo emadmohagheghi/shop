@@ -6,9 +6,9 @@ import { ArrowLeft2 } from "iconsax-react";
 import Link from "next/link";
 import { Timer } from "../../ui/timer";
 import { Carousel } from "../../ui/carousel";
-import { Product } from "../../../../types/product.types";
+import { HomeOffersProps } from "./home-offers.types";
 
-export const OffersSlider = ({ products }: { products: Product[] }) => {
+export const OffersSlider = ({ products , isLoading}: HomeOffersProps) => {
   return (
     <div className="container">
       <div className="bg-primary space-y-2 rounded-lg !p-3">
