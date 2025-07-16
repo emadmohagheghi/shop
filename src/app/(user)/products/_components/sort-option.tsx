@@ -48,7 +48,7 @@ export default function SortOptions() {
   return (
     <div
       ref={containerRef}
-      className="relative inline-flex h-15 w-full gap-2 rounded-lg border border-gray-100 bg-white p-2 text-sm font-medium shadow"
+      className="relative inline-flex h-15 w-full gap-2 rounded-lg border border-gray-100 bg-[#fff] p-2 text-sm font-medium shadow"
     >
       <p className="my-auto flex items-center justify-center">
         <Sort color="black" size={24} />
