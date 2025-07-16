@@ -11,7 +11,7 @@ export const Accordion: React.FC<AccordionProps> = ({ data }) => {
   };
 
   return (
-    <div className="divide-y- overflow-hidden rounded-t-xl">
+    <div className="divide-y- w-full overflow-hidden rounded-t-xl">
       {data.map((item, index) => (
         <div className="rounded-2xl bg-[#fff]" key={`accordion-${item.id}`}>
           <h2>
