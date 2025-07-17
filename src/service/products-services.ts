@@ -4,7 +4,7 @@ import { ApiFilterResultType } from '@/types/response';
 
 export async function getProducts(query?: string) {
   const res = await readData<ApiFilterResultType<Product>>(
-    '/api/catalog/search/?' + query
+    '/api/catalog/search/' + query
   );
   return res.data.data;
 }

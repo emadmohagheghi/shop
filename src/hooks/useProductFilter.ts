@@ -7,11 +7,9 @@ export function useProductsFilters() {
     "available",
     parseAsString,
   );
-  const [brand, setBrand] = useQueryState("brand", parseAsString);
+  const [brand, setBrand] = useQueryState("brand", parseAsInteger);
   const [category, setCategory] = useQueryState("category", parseAsString);
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
-  const [minPrice, setMinPrice] = useQueryState("minPrice", parseAsInteger);
-  const [maxPrice, setMaxPrice] = useQueryState("maxPrice", parseAsInteger);
   const [search, setSearch] = useQueryState("search", parseAsString);
   const [sort, setSort] = useQueryState("sort", parseAsString.withDefault("1"));
   const [special, setSpecial] = useQueryState("special", parseAsString);
@@ -19,8 +17,6 @@ export function useProductsFilters() {
   const clearFilters = () => {
     setCategory(null);
     setBrand(null);
-    setMinPrice(null);
-    setMaxPrice(null);
     setSort("1");
     setPage(1);
     setSearch(null);
@@ -36,8 +32,6 @@ export function useProductsFilters() {
     filters: {
       category,
       brand,
-      minPrice,
-      maxPrice,
       sort,
       page,
       search,
@@ -47,8 +41,6 @@ export function useProductsFilters() {
     setters: {
       setCategory,
       setBrand,
-      setMinPrice,
-      setMaxPrice,
       setSort,
       setPage,
       setSearch,

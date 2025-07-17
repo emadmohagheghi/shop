@@ -5,9 +5,9 @@ import { useProductsFilters } from "@/hooks/useProductFilter";
 
 const SORT_OPTIONS = [
   { text: "جدید ترین", value: "1" },
-  { text: "ارزان ترین", value: "2" },
+  { text: "پر فروش ترین", value: "2" },
   { text: "گران ترین", value: "3" },
-  { text: "پر فروش ترین", value: "4" },
+  { text: "ارزان ترین", value: "4" },
 ];
 
 export default function SortOptions() {

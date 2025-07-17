@@ -1,33 +1,17 @@
-import { getProducts } from '@/service/products-services';
+import { SortOptions, Filters , ProductsGrid} from "./_components";
 
+export const dynamic = "force-dynamic";
 
-const brandSlugToId: Record<string, number> = {
-  samsung: 7,
-  apple: 1,
-  xiaomi: 2,
-  huawei: 3,
-  lg: 4,
-  sony: 5,
-};
-
-export default async function HomePage({ searchParams }: { searchParams: Record<string, string> }) {
-  const search = new URLSearchParams(await searchParams);
-  const brandSlug = search.get('brand'); // مثلاً samsung
-
-  if (brandSlug && brandSlugToId[brandSlug]) {
-    const brandId = brandSlugToId[brandSlug];
-    search.set('brand', brandId.toString());
-  }
-
-  const queryString = search.toString();
-  const products = await getProducts(queryString);
-
-  console.log(products)
-
+export default async function HomePage() {
   return (
-    <div>
-      <p>hi</p>
-      <pre>{JSON.stringify(products, null, 2)}</pre>
+    <div className="container flex min-h-screen w-full gap-4 bg-white">
+      <div className="relative hidden w-1/4 p-2 lg:block">
+        <Filters />
+      </div>
+      <div className="w-full p-2 lg:w-3/4 space-y-4">
+        <SortOptions />
+        <ProductsGrid />
+      </div>
     </div>
   );
 }
