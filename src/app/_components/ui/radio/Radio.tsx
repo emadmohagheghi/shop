@@ -2,7 +2,6 @@ import React, { createContext, useContext } from "react";
 import classNames from "classnames";
 import { RadioProps, RadioGroupProps } from "./radio.types";
 
-// Context برای Radio Group
 const RadioGroupContext = createContext<{
   name: string;
   value?: string;
@@ -11,7 +10,6 @@ const RadioGroupContext = createContext<{
   name: "",
 });
 
-// Radio Group Component
 export const RadioGroup = ({
   name,
   value,
@@ -46,7 +44,6 @@ export const RadioGroup = ({
   );
 };
 
-// Radio Component
 export const Radio = ({
   label,
   description,
@@ -62,12 +59,13 @@ export const Radio = ({
 }: RadioProps) => {
   const context = useContext(RadioGroupContext);
 
-  // اگر در RadioGroup قرار دارد از context استفاده کن، وگرنه از props
   const name = context.name || propName;
-  const checked = context.value ? context.value === value : propChecked;
+  const checked =
+    context.value !== undefined && context.value !== null
+      ? context.value === value
+      : propChecked;
   const onChange = context.onChange || propOnChange;
 
-  // اگر name موجود نباشد و در context هم نباشد، خطا نده
   if (!name && !context.name) {
     console.warn(
       "Radio component requires either a name prop or to be used within RadioGroup",
