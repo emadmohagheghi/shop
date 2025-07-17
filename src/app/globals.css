@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :lang(fa) {
   font-family: var(--font-iranyekan);
@@ -79,4 +79,16 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Radio Button Styles */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+input[type="radio"]:checked::before {
+  opacity: 1 !important;
 }
