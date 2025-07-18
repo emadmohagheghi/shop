@@ -1,13 +1,21 @@
 "use client";
 
-import { useQueryState, parseAsString, parseAsInteger } from "nuqs";
+import {
+  useQueryState,
+  parseAsString,
+  parseAsInteger,
+  parseAsArrayOf,
+} from "nuqs";
 
 export function useProductsFilters() {
   const [isAvailable, setIsAvailable] = useQueryState(
     "available",
     parseAsString,
   );
-  const [brand, setBrand] = useQueryState("brand", parseAsInteger);
+  const [brand, setBrand] = useQueryState(
+    "brand",
+    parseAsArrayOf(parseAsString),
+  );
   const [category, setCategory] = useQueryState("category", parseAsString);
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
   const [search, setSearch] = useQueryState("search", parseAsString);
