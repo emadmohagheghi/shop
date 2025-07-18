@@ -18,10 +18,8 @@ export function CategoriesSlider({ categories }: CategoriesSliderProps) {
     );
   }
 
-  console.log(categories)
-
   return (
-    <div className="">
+    <div>
       <Carousel className="container">
         {categories.map((category) => (
           <Link
@@ -35,7 +33,6 @@ export function CategoriesSlider({ categories }: CategoriesSliderProps) {
               width={117}
               height={117}
               className="size-20 object-cover md:size-30"
-
             />
             <span className="text- mt-6 font-medium">{category.title_ir}</span>
           </Link>
