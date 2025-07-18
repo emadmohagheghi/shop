@@ -2,6 +2,7 @@ import { CategoriesSliderProps } from "./categories-slider.types";
 import { Carousel } from "../../ui/carousel";
 import { imageUrl } from "@/utils/product";
 import Image from "next/image";
+import Link from "next/link";
 
 export function CategoriesSlider({ categories }: CategoriesSliderProps) {
   // loading state
@@ -17,11 +18,14 @@ export function CategoriesSlider({ categories }: CategoriesSliderProps) {
     );
   }
 
+  console.log(categories)
+
   return (
     <div className="">
       <Carousel className="container">
         {categories.map((category) => (
-          <div
+          <Link
+            href={`/products?category=${category.slug}`}
             key={category.id}
             className="mx-2 flex flex-col items-center rounded-2xl bg-[#fff] px-6 py-4 sm:px-12 lg:mx-4"
           >
@@ -31,9 +35,10 @@ export function CategoriesSlider({ categories }: CategoriesSliderProps) {
               width={117}
               height={117}
               className="size-20 object-cover md:size-30"
+
             />
             <span className="text- mt-6 font-medium">{category.title_ir}</span>
-          </div>
+          </Link>
         ))}
       </Carousel>
     </div>
