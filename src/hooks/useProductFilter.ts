@@ -6,8 +6,9 @@ import {
   parseAsInteger,
   parseAsArrayOf,
 } from "nuqs";
+import { UseProductFiltersReturn } from "@/types/filters.types";
 
-export function useProductsFilters() {
+export function useProductsFilters(): UseProductFiltersReturn {
   const [isAvailable, setIsAvailable] = useQueryState(
     "available",
     parseAsString,
@@ -25,7 +26,6 @@ export function useProductsFilters() {
   const clearFilters = () => {
     setCategory(null);
     setBrand(null);
-    setSort("1");
     setPage(1);
     setSearch(null);
     setSpecial(null);

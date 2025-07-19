@@ -21,8 +21,6 @@ export default function ProductsGrid() {
     ? `?${queryParams.toString()}`
     : "";
 
-  console.log(queryString)
-
   const {
     data: products,
     isLoading,
@@ -31,17 +29,13 @@ export default function ProductsGrid() {
     refetch,
   } = useGetProducts(queryString);
 
-  useEffect(() => {
-    refetch();
-  }, [sort, category, brand, special]);
-
   if (isLoading || isFetching) {
     return <ProductsGridSkeleton />;
   }
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-lg bg-white p-12 text-center shadow-sm">
+      <div className="flex flex-col items-center justify-center rounded-lg bg-[#fff] p-12 text-center shadow-sm">
         <Warning2 size={48} className="mb-4 text-red-500" />
         <h3 className="mb-2 text-lg font-semibold text-gray-900">
           خطا در بارگذاری محصولات
@@ -50,7 +44,7 @@ export default function ProductsGrid() {
           متاسفانه امکان دریافت محصولات وجود ندارد
         </p>
         <button
-          onClick={() => window.location.reload()}
+          onClick={() => refetch()}
           className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
         >
           تلاش مجدد
@@ -78,10 +72,11 @@ export default function ProductsGrid() {
       {/* Products Grid */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {products.map((product) => (
-          <div key={product.id} className="flex justify-center">
-            <div className="rounded-lg shadow">
-              <ProductCard {...product} />
-            </div>
+          <div
+            key={product.id}
+            className="flex w-full justify-center rounded-lg bg-[#fff] shadow"
+          >
+            <ProductCard {...product} />
           </div>
         ))}
       </div>
