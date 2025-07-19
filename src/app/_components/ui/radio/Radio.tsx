@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useId } from "react";
 import classNames from "classnames";
 import { RadioProps, RadioGroupProps } from "./radio.types";
 
@@ -20,6 +20,9 @@ export const RadioGroup = ({
   label,
   direction = "vertical",
 }: RadioGroupProps) => {
+  const uniqueId = useId();
+  const finalName = name || `radio-group-${uniqueId}`;
+
   const groupClasses = classNames(
     "flex gap-4",
     {
@@ -30,7 +33,7 @@ export const RadioGroup = ({
   );
 
   return (
-    <RadioGroupContext.Provider value={{ name, value, onChange }}>
+    <RadioGroupContext.Provider value={{ name: finalName, value, onChange }}>
       <div className="w-full">
         {label && (
           <label className="mb-2 block text-sm font-medium text-gray-700">

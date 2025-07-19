@@ -9,12 +9,12 @@ export type RadioProps = Omit<
     label?: string;
     description?: string;
     error?: string;
-    name?: string; // اختیاری کردیم چون از context هم می‌تواند بیاید
+    name?: string;
     value: string;
   };
 
 export type RadioGroupProps = {
-  name: string;
+  name?: string;
   value?: string;
   onChange?: (value: string) => void;
   className?: string;
