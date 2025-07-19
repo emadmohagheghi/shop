@@ -8,7 +8,7 @@ import {
 
 export function useGetProducts(query?: string) {
   return useQuery({
-    queryKey: ["products"],
+    queryKey: ["products" , query],
     queryFn: () => getProducts(query),
   });
 }
