@@ -5,18 +5,18 @@ import {
   useGetNewestProducts,
   useGetBestSellingProducts,
 } from "@/hooks/useProducts";
-import { HomeSlider } from "../_components/home-components/home-slider";
-import { CategoriesSlider } from "../_components/home-components/categories-slider";
-import { OffersSlider } from "../_components/home-components/offers-slider";
-import { Carousel } from "../_components/ui/carousel";
+import { HomeSlider } from "./_components/home-components/home-slider";
+import { CategoriesSlider } from "./_components/home-components/categories-slider";
+import { OffersSlider } from "./_components/home-components/offers-slider";
+import { Carousel } from "./_components/ui/carousel";
 import Image from "next/image";
 import { imageUrl } from "@/utils/product";
 import { useHeaderStore } from "@/stores/header-data.store";
 import Link from "next/link";
 import { ArrowLeft2 } from "iconsax-react";
-import { Accordion } from "../_components/ui/accordion";
-import { ProductSlider } from "../_components/home-components/product-slider";
-import { Features } from "../_components/home-components/features/features";
+import { Accordion } from "./_components/ui/accordion";
+import { ProductSlider } from "./_components/home-components/product-slider";
+import { Features } from "./_components/home-components/features/features";
 
 const accItems = [
   {
