@@ -117,8 +117,9 @@ export default function Home() {
             <p className="font-medium">محبوب ترین برند ها</p>
           </div>
           <Carousel>
-            {brands.map((brand) => (
+            {brands.map((brand , index) => (
               <Link
+              key={"popular-brand-" + index}
                 href={"/products?brand=" + brand.slug}
                 className="mx-2 mt-3 flex flex-col items-center rounded-xl bg-[#fff] p-3 lg:mx-4 lg:p-5"
               >

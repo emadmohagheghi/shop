@@ -8,7 +8,7 @@ import { Timer } from "../../ui/timer";
 import { Carousel } from "../../ui/carousel";
 import { HomeOffersProps } from "./home-offers.types";
 
-export const OffersSlider = ({ products , isLoading}: HomeOffersProps) => {
+export const OffersSlider = ({ products }: HomeOffersProps) => {
   return (
     <div className="container">
       <div className="bg-primary space-y-2 rounded-lg !p-3">

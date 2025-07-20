@@ -11,8 +11,8 @@ export function CategoriesSlider({ categories }: CategoriesSliderProps) {
       <Carousel className="container">
         {Array(6)
           .fill(true)
-          .map((_) => (
-            <div className="shimmer mx-4 h-[160px] w-[130px] rounded-2xl bg-[#fff] px-6 py-4 sm:px-12 md:h-[200px] md:w-[216px]"></div>
+          .map((_ , index) => (
+            <div key={index} className="shimmer mx-4 h-[160px] w-[130px] rounded-2xl bg-[#fff] px-6 py-4 sm:px-12 md:h-[200px] md:w-[216px]"></div>
           ))}
       </Carousel>
     );

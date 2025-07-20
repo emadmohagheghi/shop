@@ -7,7 +7,7 @@ type HeaderStore  = HeaderType & {
 };
 
 export const useHeaderStore = create<HeaderStore>()(
-  devtools((set, get) => ({
+  devtools((set) => ({
     categories: [],
     brands: [],
     setHeaderData: (header: HeaderType) => {

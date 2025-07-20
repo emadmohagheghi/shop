@@ -2,7 +2,6 @@ import { ApiError } from '@/types/http-errors.interface';
 import axios, {
   AxiosRequestConfig,
   AxiosRequestHeaders,
-  AxiosResponse,
 } from 'axios';
 import { ApiResponseType } from '@/types/response';
 

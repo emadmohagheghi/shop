@@ -110,12 +110,6 @@ export const Switch = ({
     sizeClasses[size].label,
   );
 
-  const descriptionClasses = classNames("text-gray-500", {
-    "text-xs": size === "tiny",
-    "text-sm": size === "small" || size === "normal",
-    "text-base": size === "large",
-  });
-
   return (
     <div dir="ltr" className={classNames("flex items-start gap-3", className)}>
       <label htmlFor={switchId} className={trackClasses}>

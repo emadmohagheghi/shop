@@ -4,7 +4,6 @@ import {
   Category,
   Home,
   Moon,
-  SearchNormal1,
   ShoppingCart,
   User,
 } from "iconsax-react";

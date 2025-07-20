@@ -4,7 +4,6 @@ import { InputProps } from "./input.types";
 import classNames from "classnames";
 import { KeyboardEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { SearchNormal1 } from "iconsax-react";
 
 const variantClasses: Record<Variant, string> = {
   neutral: "border-gray-300 focus:border-gray-500 text-gray-800",

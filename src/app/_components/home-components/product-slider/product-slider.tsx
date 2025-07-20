@@ -13,8 +13,8 @@ export const ProductSlider = ({
       <Carousel className={className} link={link} title={title}>
         {Array(8)
           .fill(true)
-          .map((_) => (
-            <div className="m-2 w-[170px] overflow-hidden rounded-lg shadow-md md:w-[200px]">
+          .map((_ , index) => (
+            <div key={index} className="m-2 w-[170px] overflow-hidden rounded-lg shadow-md md:w-[200px]">
               {/* Image Skeleton */}
               <div className="shimmer h-48 w-full"></div>
 

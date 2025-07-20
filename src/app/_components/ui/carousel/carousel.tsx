@@ -1,7 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
-import { ProductCard } from "../product-card";
 import { ArrowLeft2 } from "iconsax-react";
 
 import "swiper/css";
@@ -9,7 +8,6 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import Link from "next/link";
 import { CarouselProps } from "./carousel.types";
-import Image from "next/image";
 import React from "react";
 
 export const Carousel = ({

@@ -1,6 +1,5 @@
 'use client';
 import { useEffect } from 'react';
-import { HeaderType } from '@/types/header.types';
 import { useHeaderStore } from '@/stores/header-data.store';
 
 type HeaderDataProviderProps = {

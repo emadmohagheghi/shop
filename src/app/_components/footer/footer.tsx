@@ -1,5 +1,4 @@
-import { Call, Instagram, Sms, Whatsapp, Youtube } from "iconsax-react";
-import { useNotificationStore } from "@/stores/notification.store";
+import { Call, Sms } from "iconsax-react";
 import Image from "next/image";
 import { Communication } from "./communication";
 

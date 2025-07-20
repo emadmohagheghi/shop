@@ -1,12 +1,9 @@
 "use client";
-import { Notification, NotificationType } from "@/types/notification.types";
-import { ReactNode, useEffect, useState } from "react";
+import { NotificationType } from "@/types/notification.types";
+import { useEffect, useState } from "react";
 import { Progress } from "../progress/progress";
 import {
-  TickCircle,
-  Warning2,
   NotificationBing,
-  Add,
   CloseCircle,
 } from "iconsax-react";
 import { NotificationToastProps } from "./notification.type";

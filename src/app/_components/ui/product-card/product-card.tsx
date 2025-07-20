@@ -5,11 +5,9 @@ import { Product } from "../../../../types/product.types";
 import { calculateDiscountPercentage, imageUrl } from "@/utils/product";
 
 export const ProductCard = ({
-  id,
   image,
   stockrecord,
   title_ir,
-  title_en,
   isFavorite,
   url,
 }: Product) => {
@@ -21,7 +19,7 @@ export const ProductCard = ({
   return (
     <>
       <Link
-        href={`products/${title_en}`}
+        href={url}
         className="flex w-[170px] flex-col items-center gap-2 rounded-lg bg-[#fff] p-3 md:w-[200px]"
       >
         <div className="flex w-full items-center justify-between">

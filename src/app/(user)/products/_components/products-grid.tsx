@@ -3,7 +3,6 @@ import { useGetProducts } from "@/hooks/useProducts";
 import { useProductsFilters } from "@/hooks/useProductFilter";
 import { ProductCard } from "@/app/_components/ui/product-card";
 import { Warning2, Box } from "iconsax-react";
-import { useEffect } from "react";
 
 export default function ProductsGrid() {
   const {
