@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { ArrowLeft2, ArrowRight2, More } from "iconsax-react";
+import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
 import Image from "next/image";
 import { imageUrl } from "@/utils/product";
 import type { Swiper as SwiperType } from "swiper";
