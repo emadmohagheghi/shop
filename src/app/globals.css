@@ -12,6 +12,15 @@
   width: fit-content !important;
 }
 
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background-color: var(--color-gray-500) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-gray-700) !important;
+}
 @theme {
   --color-*: initial;
 
