@@ -80,7 +80,7 @@ export function Dialog({
   if (!isOpen) return null;
 
   const dialogClasses = classNames(
-    "bg-white rounded-lg shadow-2xl relative max-h-[90vh] overflow-hidden flex flex-col",
+    "bg-[#fff] rounded-lg shadow-2xl relative max-h-[90vh] overflow-hidden flex flex-col",
     "transform transition-all duration-300 ease-out",
     "animate-in fade-in-0 zoom-in-95 duration-300",
     maxWidthClasses[maxWidth],
