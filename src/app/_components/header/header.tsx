@@ -7,7 +7,7 @@ import { Input } from "../ui/input";
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 z-90 w-full">
+    <header className="fixed top-0 z-30 w-full">
       <div className="hidden bg-white lg:block">
         <div className="container mx-auto flex items-center justify-between gap-4 p-3">
           <div>
