@@ -23,174 +23,99 @@ export type Product = {
 };
 
 export type ProductDetail = {
-  id: 0;
-  product_class: {
-    id: 0;
-    title_ir: "string";
-    title_en: "string";
-    track_stock: true;
-    require_shipping: true;
-    properties: [
-      {
-        id: 0;
-        name: "string";
-      },
-    ];
-  };
-  structure: "standalone";
-  children: [
-    {
-      id: 0;
-      stockrecord: {
-        id: 0;
-        sku: "string";
-        sale_price: 0;
-        special_sale_price: "string";
-        special_sale_price_start_at: "string";
-        special_sale_price_end_at: "string";
-        num_stock: 0;
-        in_order_limit: 0;
-      };
-      attribute_values: [
-        {
-          id: 0;
-          attribute: {
-            title: "string";
-            type: "text";
-            option_group: {
-              id: 0;
-              title: "string";
-            };
-            required: true;
-          };
-          value_text: "string";
-          value_integer: 0;
-          value_float: 0;
-          value_option: {
-            id: 0;
-            title: "string";
-            color_code: "string";
-            group: {
-              id: 0;
-              title: "string";
-            };
-          };
-          value_multi_option: [
-            {
-              id: 0;
-              title: "string";
-              color_code: "string";
-              group: {
-                id: 0;
-                title: "string";
-              };
-            },
-          ];
-        },
-      ];
-      images: [
-        {
-          id: 0;
-          image: {
-            name: "string";
-          };
-        },
-      ];
-    },
-  ];
-  attribute_values: [
-    {
-      id: 0;
-      attribute: {
-        title: "string";
-        type: "text";
-        option_group: {
-          id: 0;
-          title: "string";
-        };
-        required: true;
-      };
-      value_text: "string";
-      value_integer: 0;
-      value_float: 0;
-      value_option: {
-        id: 0;
-        title: "string";
-        color_code: "string";
-        group: {
-          id: 0;
-          title: "string";
-        };
-      };
-      value_multi_option: [
-        {
-          id: 0;
-          title: "string";
-          color_code: "string";
-          group: {
-            id: 0;
-            title: "string";
-          };
-        },
-      ];
-    },
-  ];
-  images: [
-    {
-      id: 0;
-      image: {
-        name: "string";
-      };
-    },
-  ];
-  url: "string";
-  title_ir: "string";
-  title_en: "string";
-  description: "string";
-  stockrecord: {
-    id: 0;
-    sku: "string";
-    sale_price: 0;
-    special_sale_price: "string";
-    special_sale_price_start_at: "string";
-    special_sale_price_end_at: "string";
-    num_stock: 0;
-    in_order_limit: 0;
-  };
-  is_available_in_stock: "string";
-  brand: {
-    id: 0;
-    image: {
-      name: "string";
-    };
-    title_ir: "string";
-    title_en: "string";
-    slug: "nvlIgGK8t7kYfA1VKIBvp3MjY8bVghGQf7VE-woDLVUBrmnrH9";
-  };
-  meta_title: "string";
-  meta_description: "string";
-  recommended_products: [
-    {
-      id: 0;
-      image: "string";
-      title_ir: "string";
-      title_en: "string";
-      url: "string";
-      stockrecord: {
-        sale_price: 0;
-        special_sale_price: "string";
-        special_sale_price_start_at: "string";
-        special_sale_price_end_at: "string";
-        num_stock: 0;
-        in_order_limit: 0;
-      };
-      track_stock: "string";
-      is_available_in_stock: "string";
-      brand: {
-        title_ir: "string";
-        title_en: "string";
-        slug: "06T8TjVzUKTCJyubkr6gb2QZKCW7AZ23dTaxp_E-wpW";
-      };
-    },
-  ];
-};
+  id: number
+  product_class: ProductClass
+  structure: string
+  attribute_values: any
+  images: Image[]
+  url: string
+  title_ir: string
+  title_en: string
+  short_slug: number
+  description: any
+  stockrecord: Stockrecord
+  is_available_in_stock: boolean
+  brand: Brand
+  meta_title: any
+  meta_description: string
+  properties: Property2[]
+  recommended_products: any[]
+  comment_count: number
+  children: Children[]
+}
+
+export type ProductClass = {
+  id: number
+  title_ir: string
+  title_en: string
+  track_stock: boolean
+  require_shipping: boolean
+  properties: Property[]
+}
+
+export type Property = {
+  id: number
+  name: string
+}
+
+export type Image = {
+  id: number
+  image: Image2
+}
+
+export type Image2 = {
+  name: string
+}
+
+export type Stockrecord = {
+  id: number
+  sku: any
+  sale_price: number
+  special_sale_price: number
+  special_sale_price_start_at: any
+  special_sale_price_end_at: any
+  num_stock: number
+  in_order_limit: any
+}
+
+export type Brand = {
+  id: number
+  image: Image3
+  title_ir: string
+  title_en: string
+  slug: string
+}
+
+export type Image3 = {
+  name: string
+}
+
+export type Property2 = {
+  id: number
+  property: Property3
+  value: string
+}
+
+export type Property3 = {
+  id: number
+  name: string
+}
+
+export type Children = {
+  id: number
+  stockrecord: Stockrecord2
+  attribute_values: any
+  images: any[]
+}
+
+export type Stockrecord2 = {
+  id: number
+  sku: string
+  sale_price: number
+  special_sale_price: number
+  special_sale_price_start_at: any
+  special_sale_price_end_at: any
+  num_stock: number
+  in_order_limit: any
+}
+
